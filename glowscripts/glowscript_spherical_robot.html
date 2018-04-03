@@ -1,0 +1,415 @@
+<div id="glowscript" class="glowscript">
+<link type="text/css" href="https://s3.amazonaws.com/glowscript/css/redmond/2.1/jquery-ui.custom.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css" />
+<link type="text/css" href="https://s3.amazonaws.com/glowscript/css/ide.css" rel="stylesheet" />
+<script type="text/javascript" src="https://s3.amazonaws.com/glowscript/lib/jquery/2.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://s3.amazonaws.com/glowscript/lib/jquery/2.1/jquery-ui.custom.min.js"></script>
+<script type="text/javascript" src="https://s3.amazonaws.com/glowscript/package/glow.2.7.min.js"></script>
+<script type="text/javascript" src="https://s3.amazonaws.com/glowscript/package/RSrun.2.7.min.js"></script>
+<script type="text/javascript"><!--//--><![CDATA[//><!--
+;(function() { var __rt=srequire('streamline/lib/callbacks/runtime').runtime(__filename, false),__func=__rt.__func,__cb=__rt.__cb; var RS_modules = {};
+var axis_1, axis_2, old_theta_1, old_theta_2, x;
+RS_modules.pythonize = {};
+
+(function() {
+  function strings() {
+    var string_funcs, exclude, name;
+    string_funcs = set("capitalize strip lstrip rstrip islower isupper isspace lower upper swapcase center count endswith startswith find rfind index rindex format join ljust rjust partition rpartition replace split rsplit splitlines zfill".split(" "));
+    if (!arguments.length) {
+      exclude = (function() {
+        var s = RS_set();
+        s.jsset.add("split");
+        s.jsset.add("replace");
+        return s;
+      })(); }
+     else if (arguments[0]) {
+      exclude = Array.prototype.slice.call(arguments); }
+     else {
+      exclude = null; }  ;
+
+    if (exclude) {
+      string_funcs = string_funcs.difference(set(exclude)); } ;
+
+    var RS_Iter0 = RS_Iterable(string_funcs);
+    for (var RS_Index0 = 0; RS_Index0["<"](RS_Iter0.length); RS_Index0++) {
+      name = RS_Iter0[RS_Index0];
+      (RS_expr_temp = String.prototype)[((((typeof name === "number") && name["<"](0))) ? RS_expr_temp.length["+"](name) : name)] = (RS_expr_temp = RS_str.prototype)[((((typeof name === "number") && name["<"](0))) ? RS_expr_temp.length["+"](name) : name)]; }; };  RS_modules.pythonize.strings = strings;
+})();
+function main(_) { var version, box, sphere, cylinder, pyramid, cone, helix, ellipsoid, ring, arrow, compound, display, vector, print, scene, RS_ls, B0, B1, B2, DCM_0, axis_0, old_theta_1, DCM_1, axis_1, old_theta_2, DCM_2, x, axis_2, sl_1, sl_2, sl_3, __name__, strings, __this = this;
+  function draw_reference_box(L) {
+    var RS_ls, gray, d, r, boxbottom, boxtop, vert1, vert2, vert3, vert4;
+    "15";
+    gray = color.gray(0.7);
+    "16";
+    d = L["/"](2);
+    "17";
+    r = 0.005;
+    "18";
+    boxbottom = RS_interpolate_kwargs.call(this, curve, [RS_desugar_kwargs({ color: gray, radius: r }),]);
+    "19";
+    boxbottom.append(RS_list_decorate([vector(d["-u"](), d["-u"](), d["-u"]()),vector(d["-u"](), d["-u"](), d),vector(d, d["-u"](), d),vector(d, d["-u"](), d["-u"]()),vector(d["-u"](), d["-u"](), d["-u"]()),]));
+    "22";
+    boxtop = RS_interpolate_kwargs.call(this, curve, [RS_desugar_kwargs({ color: gray, radius: r }),]);
+    "23";
+    boxtop.append(RS_list_decorate([vector(d["-u"](), d, d["-u"]()),vector(d["-u"](), d, d),vector(d, d, d),vector(d, d, d["-u"]()),vector(d["-u"](), d, d["-u"]()),]));
+    "26";
+    vert1 = RS_interpolate_kwargs.call(this, curve, [RS_desugar_kwargs({ color: gray, radius: r }),]);
+    "27";
+    vert2 = RS_interpolate_kwargs.call(this, curve, [RS_desugar_kwargs({ color: gray, radius: r }),]);
+    "28";
+    vert3 = RS_interpolate_kwargs.call(this, curve, [RS_desugar_kwargs({ color: gray, radius: r }),]);
+    "29";
+    vert4 = RS_interpolate_kwargs.call(this, curve, [RS_desugar_kwargs({ color: gray, radius: r }),]);
+    "30";
+    vert1.append(RS_list_decorate([vector(d["-u"](), d["-u"](), d["-u"]()),vector(d["-u"](), d, d["-u"]()),]));
+    "31";
+    vert2.append(RS_list_decorate([vector(d["-u"](), d["-u"](), d),vector(d["-u"](), d, d),]));
+    "32";
+    vert3.append(RS_list_decorate([vector(d, d["-u"](), d),vector(d, d, d),]));
+    "33";
+    vert4.append(RS_list_decorate([vector(d, d["-u"](), d["-u"]()),vector(d, d, d["-u"]()),])); };
+
+
+  function transpose(matrix) {
+    var RS_ls;
+    "40";
+    return (function() {
+      var RS_Iter = RS_Iterable(range(len(matrix))), RS_Result = [], j;
+      for (var RS_Index = 0; RS_Index["<"](RS_Iter.length); RS_Index++) {
+        j = RS_Iter[RS_Index];
+        RS_Result.push((function() {
+          var RS_Iter = RS_Iterable(range(len(matrix[((((typeof j === "number") && j["<"](0))) ? matrix.length["+"](j) : j)]))), RS_Result = [], i;
+          for (var RS_Index = 0; RS_Index["<"](RS_Iter.length); RS_Index++) {
+            i = RS_Iter[RS_Index];
+            RS_Result.push((RS_expr_temp = matrix[((((typeof i === "number") && i["<"](0))) ? matrix.length["+"](i) : i)])[((((typeof j === "number") && j["<"](0))) ? RS_expr_temp.length["+"](j) : j)]); };
+
+          RS_Result = RS_list_constructor(RS_Result);
+          return RS_Result;
+        })()); };
+
+      RS_Result = RS_list_constructor(RS_Result);
+      return RS_Result;
+    })(); };
+
+
+  function matxvec(a, mat, L, M) {
+    var RS_ls, temp, x, tran, s, j, i;
+    "55";
+    temp = (function() {
+      var RS_Iter = RS_Iterable(mat), RS_Result = [], x;
+      for (var RS_Index = 0; RS_Index["<"](RS_Iter.length); RS_Index++) {
+        x = RS_Iter[RS_Index];
+        RS_Result.push(RS_list_decorate([null,])["*"](len(x))); };
+
+      RS_Result = RS_list_constructor(RS_Result);
+      return RS_Result;
+    })();
+    "56";
+    tran = transpose(mat);
+    "59";
+    for (var RS_Index1 = 0; RS_Index1["<"](L); RS_Index1 = RS_Index1["+="](1)) {
+      i = RS_Index1;
+      "60";
+      s = 0;
+      "61";
+      for (var RS_Index2 = 0; RS_Index2["<"](M); RS_Index2 = RS_Index2["+="](1)) {
+        j = RS_Index2;
+        "62";
+        s = s["+"]((RS_expr_temp = tran[((((typeof i === "number") && i["<"](0))) ? tran.length["+"](i) : i)])[((((typeof j === "number") && j["<"](0))) ? RS_expr_temp.length["+"](j) : j)]["*"](a[((((typeof j === "number") && j["<"](0))) ? a.length["+"](j) : j)])); };
+
+      "63";
+      temp[((((typeof i === "number") && i["<"](0))) ? temp.length["+"](i) : i)] = s; };
+
+    "64";
+    return temp; };
+
+
+  function axRot(ax, DCM) {
+    var RS_ls;
+    "74";
+    return vector.apply(this, matxvec(ax, DCM, 3, 3)); };
+
+
+  function f_DCM_1(theta_1) {
+    var RS_ls;
+    "85";
+    return RS_list_decorate([RS_list_decorate([cos(theta_1),sin(theta_1)["-u"](),0,]),RS_list_decorate([0,0,1,]),RS_list_decorate([sin(theta_1),cos(theta_1),0,]),]); };
+
+
+  function f_DCM_2(theta_1, theta_2) {
+    var RS_ls;
+    "110";
+    return RS_list_decorate([RS_list_decorate([cos(theta_1)["*"](cos(theta_2)),sin(theta_1)["-u"]()["*"](cos(theta_2)),sin(theta_2)["-u"](),]),RS_list_decorate([sin(theta_2)["*"](cos(theta_1)),sin(theta_1)["-u"]()["*"](sin(theta_2)),cos(theta_2),]),RS_list_decorate([sin(theta_1),cos(theta_1),0,]),]); };
+
+
+  function vplot_referenceFrame() {
+    var pos = ((((((0 === arguments.length["-"](1)) && (arguments[arguments.length["-"](1)] !== null)) && (typeof arguments[arguments.length["-"](1)] === "object")) && (arguments[arguments.length["-"](1)][RS_kwargs_symbol] === true))) ? undefined : arguments[0]);
+    var Base = ((((((1 === arguments.length["-"](1)) && (arguments[arguments.length["-"](1)] !== null)) && (typeof arguments[arguments.length["-"](1)] === "object")) && (arguments[arguments.length["-"](1)][RS_kwargs_symbol] === true))) ? undefined : arguments[1]);
+    var DCM = ((((((2 === arguments.length["-"](1)) && (arguments[arguments.length["-"](1)] !== null)) && (typeof arguments[arguments.length["-"](1)] === "object")) && (arguments[arguments.length["-"](1)][RS_kwargs_symbol] === true))) ? undefined : arguments[2]);
+    var scale = ((((arguments[3] === undefined) || (((((3 === arguments.length["-"](1)) && (arguments[arguments.length["-"](1)] !== null)) && (typeof arguments[arguments.length["-"](1)] === "object")) && (arguments[arguments.length["-"](1)][RS_kwargs_symbol] === true))))) ? vplot_referenceFrame.__defaults__.scale : arguments[3]);
+    var fade_color = ((((arguments[4] === undefined) || (((((4 === arguments.length["-"](1)) && (arguments[arguments.length["-"](1)] !== null)) && (typeof arguments[arguments.length["-"](1)] === "object")) && (arguments[arguments.length["-"](1)][RS_kwargs_symbol] === true))))) ? vplot_referenceFrame.__defaults__.fade_color : arguments[4]);
+    var RS_kwargs_obj = arguments[arguments.length["-"](1)];
+    if ((((RS_kwargs_obj === null) || (typeof RS_kwargs_obj !== "object")) || (RS_kwargs_obj[RS_kwargs_symbol] !== true))) { RS_kwargs_obj = { }; };
+    if (Object.prototype.hasOwnProperty.call(RS_kwargs_obj, "scale")) {
+      scale = RS_kwargs_obj.scale; } ;
+
+    if (Object.prototype.hasOwnProperty.call(RS_kwargs_obj, "fade_color")) {
+      fade_color = RS_kwargs_obj.fade_color; } ;
+
+    var RS_ls, lenght, radius, xaxis, xlbl, yaxis, ylbl, zaxis, zlbl;
+    "133";
+    lenght = 10["/"](scale);
+    "134";
+    radius = 0.3["*"](scale);
+    "135";
+    xaxis = RS_interpolate_kwargs.call(this, cylinder, [RS_desugar_kwargs({ color: vector(1, 0, 0)["*"](fade_color), pos: vector.apply(this, pos), axis: axRot(RS_list_decorate([lenght,0,0,]), DCM), radius: radius }),]);
+    "137";
+    RS_interpolate_kwargs.call(this, attach_arrow, [xaxis,"axis",].concat([RS_desugar_kwargs({ scale: 1.09, shaftwidth: 1.4["*"](radius), color: vector(1, 0, 0)["*"](fade_color) }),]));
+    "139";
+    RS_interpolate_kwargs.call(this, attach_trail, [xaxis,].concat([RS_desugar_kwargs({ retain: 30 }),]));
+    "140";
+    xlbl = RS_interpolate_kwargs.call(this, label, [RS_desugar_kwargs({ pos: vector.apply(this, pos)["+"](axRot(RS_list_decorate([lenght["*"](1.1),0,0,]), DCM)), text: Base.name["+"](Base.indices[0]), color: color.red["*"](fade_color), opacity: 0, height: 30, box: 0 }),]);
+    "144";
+    yaxis = RS_interpolate_kwargs.call(this, cylinder, [RS_desugar_kwargs({ color: color.green["*"](fade_color), pos: vector.apply(this, pos), axis: axRot(RS_list_decorate([0,lenght,0,]), DCM), radius: radius }),]);
+    "146";
+    RS_interpolate_kwargs.call(this, attach_arrow, [yaxis,"axis",].concat([RS_desugar_kwargs({ scale: 1.09, shaftwidth: 1.4["*"](radius), color: color.green["*"](fade_color) }),]));
+    "148";
+    RS_interpolate_kwargs.call(this, attach_trail, [yaxis,].concat([RS_desugar_kwargs({ retain: 30 }),]));
+    "149";
+    ylbl = RS_interpolate_kwargs.call(this, label, [RS_desugar_kwargs({ pos: vector.apply(this, pos)["+"](axRot(RS_list_decorate([0,lenght["*"](1.1),0,]), DCM)), text: Base.name["+"](Base.indices[1]), color: color.green["*"](fade_color), opacity: 0, height: 30, box: 0 }),]);
+    "152";
+    zaxis = RS_interpolate_kwargs.call(this, cylinder, [RS_desugar_kwargs({ color: color.blue["*"](fade_color), pos: vector.apply(this, pos), axis: axRot(RS_list_decorate([0,0,lenght,]), DCM), radius: radius }),]);
+    "154";
+    RS_interpolate_kwargs.call(this, attach_arrow, [zaxis,"axis",].concat([RS_desugar_kwargs({ scale: 1.09, shaftwidth: 1.4["*"](radius), color: color.blue["*"](fade_color) }),]));
+    "156";
+    RS_interpolate_kwargs.call(this, attach_trail, [zaxis,].concat([RS_desugar_kwargs({ retain: 30 }),]));
+    "157";
+    zlbl = RS_interpolate_kwargs.call(this, label, [RS_desugar_kwargs({ pos: vector.apply(this, pos)["+"](axRot(RS_list_decorate([0,0,lenght["*"](1.1),]), DCM)), text: Base.name["+"](Base.indices[2]), color: color.blue["*"](fade_color), opacity: 0, height: 30, box: 0 }),]);
+    "161";
+    return (function() {
+      var RS_d = { };
+      RS_d["xaxis"] = xaxis;
+      RS_d["xlbl"] = xlbl;
+      RS_d["yaxis"] = yaxis;
+      RS_d["ylbl"] = ylbl;
+      RS_d["zaxis"] = zaxis;
+      RS_d["zlbl"] = zlbl;
+      return RS_d;
+    }).call(this); };
+  function update_theta_1(s) {
+    var RS_ls, scale, lenght, DCM_1, DCM_2;
+    "170";
+    "171";
+    old_theta_1 = s.value;
+    "173";
+    scale = 0.8;
+    "174";
+    lenght = 10["/"](scale);
+    "175";
+    DCM_1 = f_DCM_1(old_theta_1);
+    "176";
+    axis_1["xaxis"].axis = axRot(RS_list_decorate([lenght,0,0,]), DCM_1);
+    "177";
+    axis_1["xlbl"].pos = axRot(RS_list_decorate([lenght["*"](1.1),0,0,]), DCM_1);
+    "178";
+    axis_1["yaxis"].axis = axRot(RS_list_decorate([0,lenght,0,]), DCM_1);
+    "179";
+    axis_1["ylbl"].pos = axRot(RS_list_decorate([0,lenght["*"](1.1),0,]), DCM_1);
+    "180";
+    axis_1["zaxis"].axis = axRot(RS_list_decorate([0,0,lenght,]), DCM_1);
+    "181";
+    axis_1["zlbl"].pos = axRot(RS_list_decorate([0,0,lenght["*"](1.1),]), DCM_1);
+    "183";
+    scale = 0.7;
+    "184";
+    lenght = 10["/"](scale);
+    "185";
+    DCM_2 = f_DCM_2(old_theta_1, old_theta_2);
+    "186";
+    axis_2["xaxis"].axis = axRot(RS_list_decorate([lenght,0,0,]), DCM_2);
+    "187";
+    axis_2["xaxis"].pos = axRot(RS_list_decorate([x,0,0,]), DCM_1);
+    "188";
+    axis_2["xlbl"].pos = axRot(RS_list_decorate([x,0,0,]), DCM_1)["+"](axRot(RS_list_decorate([lenght["*"](1.1),0,0,]), DCM_2));
+    "190";
+    axis_2["yaxis"].axis = axRot(RS_list_decorate([0,lenght,0,]), DCM_2);
+    "191";
+    axis_2["yaxis"].pos = axRot(RS_list_decorate([x,0,0,]), DCM_1);
+    "192";
+    axis_2["ylbl"].pos = axRot(RS_list_decorate([x,0,0,]), DCM_1)["+"](axRot(RS_list_decorate([0,lenght["*"](1.1),0,]), DCM_2));
+    "194";
+    axis_2["zaxis"].axis = axRot(RS_list_decorate([0,0,lenght,]), DCM_2);
+    "195";
+    axis_2["zaxis"].pos = axRot(RS_list_decorate([x,0,0,]), DCM_1);
+    "196";
+    axis_2["zlbl"].pos = axRot(RS_list_decorate([x,0,0,]), DCM_1)["+"](axRot(RS_list_decorate([0,0,lenght["*"](1.1),]), DCM_2));
+    "198";
+    RS_interpolate_kwargs.call(this, print_options, [RS_desugar_kwargs({ clear: true }),]);
+    "199";
+    print("theta_1={:.1f}° theta_2={:.1f}° x={:.1f}".format(old_theta_1["*"](180)["/"](pi), old_theta_2["*"](180)["/"](pi), x)); };
+
+
+  function update_theta_2(s) {
+    var RS_ls, scale, lenght, DCM_1, DCM_2;
+    "208";
+    "209";
+    old_theta_2 = s.value;
+    "210";
+    scale = 0.7;
+    "211";
+    lenght = 10["/"](scale);
+    "212";
+    DCM_1 = f_DCM_1(old_theta_1);
+    "213";
+    DCM_2 = f_DCM_2(old_theta_1, old_theta_2);
+    "214";
+    axis_2["xaxis"].axis = axRot(RS_list_decorate([lenght,0,0,]), DCM_2);
+    "215";
+    axis_2["xaxis"].pos = axRot(RS_list_decorate([x,0,0,]), DCM_1);
+    "216";
+    axis_2["xlbl"].pos = axRot(RS_list_decorate([x,0,0,]), DCM_1)["+"](axRot(RS_list_decorate([lenght["*"](1.1),0,0,]), DCM_2));
+    "218";
+    axis_2["yaxis"].axis = axRot(RS_list_decorate([0,lenght,0,]), DCM_2);
+    "219";
+    axis_2["yaxis"].pos = axRot(RS_list_decorate([x,0,0,]), DCM_1);
+    "220";
+    axis_2["ylbl"].pos = axRot(RS_list_decorate([x,0,0,]), DCM_1)["+"](axRot(RS_list_decorate([0,lenght["*"](1.1),0,]), DCM_2));
+    "222";
+    axis_2["zaxis"].axis = axRot(RS_list_decorate([0,0,lenght,]), DCM_2);
+    "223";
+    axis_2["zaxis"].pos = axRot(RS_list_decorate([x,0,0,]), DCM_1);
+    "224";
+    axis_2["zlbl"].pos = axRot(RS_list_decorate([x,0,0,]), DCM_1)["+"](axRot(RS_list_decorate([0,0,lenght["*"](1.1),]), DCM_2));
+    "226";
+    RS_interpolate_kwargs.call(this, print_options, [RS_desugar_kwargs({ clear: true }),]);
+    "227";
+    print("theta_1={:.1f}° theta_2={:.1f}° x={:.1f}".format(old_theta_1["*"](180)["/"](pi), old_theta_2["*"](180)["/"](pi), x)); };
+
+
+  function update_x(s) {
+    var RS_ls, scale, lenght, DCM_1, DCM_2;
+    "236";
+    "237";
+    x = s.value;
+    "238";
+    scale = 0.7;
+    "239";
+    lenght = 10["/"](scale);
+    "240";
+    DCM_1 = f_DCM_1(old_theta_1);
+    "241";
+    DCM_2 = f_DCM_2(old_theta_1, old_theta_2);
+    "242";
+    axis_2["xaxis"].axis = axRot(RS_list_decorate([lenght,0,0,]), DCM_2);
+    "243";
+    axis_2["xaxis"].pos = axRot(RS_list_decorate([x,0,0,]), DCM_1);
+    "244";
+    axis_2["xlbl"].pos = axRot(RS_list_decorate([x,0,0,]), DCM_1)["+"](axRot(RS_list_decorate([lenght["*"](1.1),0,0,]), DCM_2));
+    "246";
+    axis_2["yaxis"].axis = axRot(RS_list_decorate([0,lenght,0,]), DCM_2);
+    "247";
+    axis_2["yaxis"].pos = axRot(RS_list_decorate([x,0,0,]), DCM_1);
+    "248";
+    axis_2["ylbl"].pos = axRot(RS_list_decorate([x,0,0,]), DCM_1)["+"](axRot(RS_list_decorate([0,lenght["*"](1.1),0,]), DCM_2));
+    "250";
+    axis_2["zaxis"].axis = axRot(RS_list_decorate([0,0,lenght,]), DCM_2);
+    "251";
+    axis_2["zaxis"].pos = axRot(RS_list_decorate([x,0,0,]), DCM_1);
+    "252";
+    axis_2["zlbl"].pos = axRot(RS_list_decorate([x,0,0,]), DCM_1)["+"](axRot(RS_list_decorate([0,0,lenght["*"](1.1),]), DCM_2));
+    "254";
+    RS_interpolate_kwargs.call(this, print_options, [RS_desugar_kwargs({ clear: true }),]);
+    "255";
+    print("theta_1={:.1f}° theta_2={:.1f}° x={:.1f}".format(old_theta_1["*"](180)["/"](pi), old_theta_2["*"](180)["/"](pi), x)); };
+
+
+  function Base() {
+    if ((this.RS_object_id === undefined)) { Object.defineProperty(this, "RS_object_id", { value: ++RS_object_counter }); };
+    Base.prototype.__init__.apply(this, arguments); }; var __frame = { name: "main", line: 33 }; return __func(_, this, arguments, main, 0, __frame, function __$main() { version = RS_list_decorate(["2.7","glowscript",]); Array.prototype["+"] = function(r) { return this.concat(r); }; Array.prototype["*"] = function(r) { return __array_times_number(this, r); }; __name__ = "__main__"; window.__GSlang = "vpython"; box = vp_box; sphere = vp_sphere; cylinder = vp_cylinder; pyramid = vp_pyramid; cone = vp_cone; helix = vp_helix; ellipsoid = vp_ellipsoid; ring = vp_ring; arrow = vp_arrow; compound = vp_compound; display = canvas; vector = vec; print = GSprint; scene = canvas(); strings = RS_modules.pythonize.strings; strings(); "10"; if (!draw_reference_box.__argnames__) { Object.defineProperties(draw_reference_box, { __argnames__: { value: ["L",] } }); } ; "36"; if (!transpose.__argnames__) { Object.defineProperties(transpose, { __argnames__: { value: ["matrix",] } }); } ; "43"; if (!matxvec.__argnames__) { Object.defineProperties(matxvec, { __argnames__: { value: ["a","mat","L","M",] } }); } ; "67"; if (!axRot.__argnames__) { Object.defineProperties(axRot, { __argnames__: { value: ["ax","DCM",] } }); } ; "77"; if (!f_DCM_1.__argnames__) { Object.defineProperties(f_DCM_1, { __argnames__: { value: ["theta_1",] } }); } ; "102"; if (!f_DCM_2.__argnames__) { Object.defineProperties(f_DCM_2, { __argnames__: { value: ["theta_1","theta_2",] } }); } ; "126"; if (!vplot_referenceFrame.__defaults__) { Object.defineProperties(vplot_referenceFrame, { __defaults__: { value: { scale: 1, fade_color: 0 } }, __handles_kwarg_interpolation__: { value: true }, __argnames__: { value: ["pos","Base","DCM","scale","fade_color",] } }); } ; "165"; if (!update_theta_1.__argnames__) { Object.defineProperties(update_theta_1, { __argnames__: { value: ["s",] } }); } ; "203"; if (!update_theta_2.__argnames__) { Object.defineProperties(update_theta_2, { __argnames__: { value: ["s",] } }); } ; "231"; if (!update_x.__argnames__) { Object.defineProperties(update_x, { __argnames__: { value: ["s",] } }); } ; "259";
+
+    Base.prototype.__init__ = function __init__(name, indices) {
+      var self = this;
+      var RS_ls;
+      "265";
+      self.name = name;
+      "266";
+      self.indices = indices; };
+
+    if (!Base.prototype.__init__.__argnames__) { Object.defineProperties(Base.prototype.__init__, {
+        __argnames__: { value: ["name","indices",] } }); } ;
+
+    Base.__argnames__ = Base.prototype.__init__.__argnames__;
+    Base.__handles_kwarg_interpolation__ = Base.prototype.__init__.__handles_kwarg_interpolation__;
+    Base.prototype.__repr__ = function __repr__() {
+      return "<"["+"](__name__)["+"](".")["+"](this.constructor.name)["+"](" #")["+"](this.RS_object_id)["+"](">"); };
+
+    Base.prototype.__str__ = function __str__() {
+      return this.__repr_; };
+
+    Object.defineProperty(Base.prototype, "__bases__", { value: [] });
+    Base.prototype.RS_ls = "264";
+
+    "269";
+    scene.title = "Spherical Robot 3D view";
+    "270";
+    scene.background = color.white;
+    "271";
+    scene.width = 600;
+    "272";
+    scene.height = 400;
+    "273";
+    scene.range = 10;
+    "274";
+    scene.forward = vector(1["-u"](), 1["-u"](), 1["-u"]());
+    "275";
+    scene.autoscale = true;
+    "276";
+    RS_interpolate_kwargs.call(__this, print_options, [RS_desugar_kwargs({ width: 400, height: 40 }),]);
+    "278";
+    scene.caption = "   Use sliders to adjust theta_1 and theta_2 and x\n";
+    "280";
+    draw_reference_box(25);
+    "282";
+    B0 = new Base("B0", RS_list_decorate(["i","j","k",]));
+    "283";
+    B1 = new Base("B1", RS_list_decorate(["i","j","k",]));
+    "284";
+    B2 = new Base("B2", RS_list_decorate(["i","j","k",]));
+    "287";
+    DCM_0 = RS_list_decorate([RS_list_decorate([1,0,0,]),RS_list_decorate([0,0,1,]),RS_list_decorate([0,1,0,]),]);
+    "288";
+    axis_0 = RS_interpolate_kwargs.call(__this, vplot_referenceFrame, [RS_list_decorate([0,0,0,]),B0,DCM_0,].concat([RS_desugar_kwargs({ scale: 1, fade_color: 1 }),]));
+    "292";
+    old_theta_1 = pi["/"](8);
+    "293";
+    DCM_1 = f_DCM_1(old_theta_1);
+    "294";
+    axis_1 = RS_interpolate_kwargs.call(__this, vplot_referenceFrame, [RS_list_decorate([0,0,0,]),B1,DCM_1,].concat([RS_desugar_kwargs({ scale: 0.8, fade_color: 0.75 }),]));
+    "298";
+    old_theta_2 = pi["/"](8);
+    "299";
+    DCM_2 = f_DCM_2(old_theta_1, old_theta_2);
+    "300";
+    x = 5;
+    "301";
+    axis_2 = RS_interpolate_kwargs.call(__this, vplot_referenceFrame, [matxvec(RS_list_decorate([x,0,0,]), DCM_1, 3, 3),B2,DCM_2,].concat([RS_desugar_kwargs({ scale: 0.7, fade_color: 0.5 }),]));
+    "306";
+    sl_1 = RS_interpolate_kwargs.call(__this, slider, [RS_desugar_kwargs({ min: 0, max: 2["*"](pi), length: 200, value: old_theta_1, bind: update_theta_1, left: 10, right: 10 }),]);
+    "309";
+    sl_2 = RS_interpolate_kwargs.call(__this, slider, [RS_desugar_kwargs({ min: 0, max: 2["*"](pi), length: 200, value: old_theta_2, bind: update_theta_2, right: 10 }),]);
+    "311";
+    sl_3 = RS_interpolate_kwargs.call(__this, slider, [RS_desugar_kwargs({ min: 0, max: 10, length: 155, value: x, bind: update_x }),]);
+    "313";
+    scene.append_to_caption("\n");
+    "315"; return (function ___(__break) { var __more; var __loop = __cb(_, __frame, 0, 0, function __$main() { __more = false;
+        var __1 = true; if (__1) {
+          "316";
+          return rate(100, __cb(_, __frame, 437, 8, function __$main() { while (__more) { __loop(); }; __more = true; }, true)); } else { __break(); } ; }); do { __loop(); } while (__more); __more = true; })(_); });};
+
+
+if (!main.__argnames__) { Object.defineProperties(main, {
+    __argnames__: { value: ["_",] } });};
+
+;$(function(){ window.__context = { glowscript_container: $("#glowscript").removeAttr("id") }; main(__func) })})()
+//--><!]]></script>
+</div>
