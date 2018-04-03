@@ -5,7 +5,7 @@ Supervised exercices solutions using Jupyter and Simpy
 Code by Pierre Nagorny. Exercices by Eric Pairel.
 
 # Exercices
-_Please fork/download & install for interactive notebooks_
+_Please fork/download & install for interactive notebooks_  
 [Exercices 7 - Spherical robot](https://github.com/a1rb4Ck/MECA654/blob/master/html_notebooks/Kinematic_Exercise%207_Spherical%20Robot.html)  
 [Exercices 8 - Friction wheels](https://github.com/a1rb4Ck/MECA654/blob/master/html_notebooks/Kinematic_Exercise%208_Friction%20wheels.html)  
 [Exercices 9 - Cam mechanism](https://github.com/a1rb4Ck/MECA654/blob/master/html_notebooks/Kinematic_Exercise%209_Cam%20mechanism.html)  
