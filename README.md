@@ -1,19 +1,24 @@
-===============================
 MECA654 @ Polytech Annecy engineering school
 ===============================
 
 Supervised exercices solutions using Jupyter and Simpy
-Notebooks by Pierre Nagorny. Exercices by Eric Pairel.
+Code by Pierre Nagorny. Exercices by Eric Pairel.
 
-Quickstart
-----------
+# Exercices
+_Please fork/download & install for interactive notebooks_
+[Exercices 7 - Spherical robot](https://github.com/a1rb4Ck/MECA654/blob/master/html_notebooks/Kinematic_Exercise%207_Spherical%20Robot.html)  
+[Exercices 8 - Friction wheels](https://github.com/a1rb4Ck/MECA654/blob/master/html_notebooks/Kinematic_Exercise%208_Friction%20wheels.html)  
+[Exercices 9 - Cam mechanism](https://github.com/a1rb4Ck/MECA654/blob/master/html_notebooks/Kinematic_Exercise%209_Cam%20mechanism.html)  
+[Exercices 10 - Movements and acceleration](https://github.com/a1rb4Ck/MECA654/blob/master/html_notebooks/Kinematic_Exercise%2010_Movements%20composition%20and%20acceleration.html)  
 
-# Installation
+# Quickstart with Jupyter Notebooks
+
+## Installation
 
 ### Install required packages
 .. code-block:: bash
 
-    pip3 install -r requirements.txt
+    pip install -r requirements.txt
 
 
 ### Starting Jupyter
@@ -22,26 +27,25 @@ Quickstart
 
     jupyter notebook
 
-# Getting help
+## Getting help
 
 .. code-block:: bash
 
     help(function)
 
 
-Ressources
-----------
+# Ressources
 
-# Basic vector calculus and linear algebra
+## Basic vector calculus and linear algebra
 [Scalar and vector - #ABCUniv Brazil](http://nbviewer.jupyter.org/github/demotu/BMC/blob/master/notebooks/ScalarVector.ipynb)
 
-# Rigid body dynamics
+## Rigid body dynamics
 - [MECA654 on the e-Learning plateform](http://ead-polytech.univ-savoie.fr/course/view.php?id=138)
 - [Rigid-body transformations in a plane (2D) @ABCUniv Brazil](http://nbviewer.jupyter.org/github/demotu/BMC/blob/master/notebooks/Transformation2D.ipynb)
 - [Angular kinematics in a plane (2D) @ABCUniv Brazil](http://nbviewer.jupyter.org/github/demotu/BMC/blob/master/notebooks/AngularKinematics2D.ipynb)
 - [The Feynman Lectures on Physics - Vol.1 - Chapters 8 to 25](http://www.feynmanlectures.caltech.edu/I_08.html)
 
-# More Python with Sympy, PyDy, Symblock
+## Sympy (symbolic calculs in Python) and PyDy (complex rigid bodies)
 - [Examples in mechanics](http://docs.sympy.org/0.7.2/modules/physics/mechanics/examples.html)
 - [Solving a Rolling Disc problem with Kane's method](http://docs.sympy.org/0.7.3/modules/physics/mechanics/rollingdisc_example_kane_constraints.html)
 - [PyDy beginners tutorial](http://www.pydy.org/examples/beginners_tutorial.html)
@@ -50,8 +54,7 @@ Ressources
 - [Notes on Scientific Computing for Biomechanics and Motor Control](https://github.com/demotu/BMC)
 - [Computational Fluid Dynamics in Python](http://lorenabarba.com/blog/cfd-python-12-steps-to-navier-stokes/)
 
-
-# Markdown & Latex hints
+## Markdown & Latex memos and hints
 http://data-blog.udacity.com/posts/2016/10/latex-primer/
 http://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Typesetting%20Equations.html
 https://www.sharelatex.com/learn/Aligning_equations_with_amsmath#%2FAligning_several_equations
