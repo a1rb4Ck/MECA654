@@ -37,7 +37,7 @@ _Please fork/download & install for interactive notebooks_
 # Ressources
 
 ## Basic vector calculus and linear algebra
-[Scalar and vector - #ABCUniv Brazil](http://nbviewer.jupyter.org/github/demotu/BMC/blob/master/notebooks/ScalarVector.ipynb)
+[Scalar and vector - @ABCUniv Brazil](http://nbviewer.jupyter.org/github/demotu/BMC/blob/master/notebooks/ScalarVector.ipynb)
 
 ## Rigid body dynamics
 - [MECA654 on the e-Learning plateform](http://ead-polytech.univ-savoie.fr/course/view.php?id=138)
