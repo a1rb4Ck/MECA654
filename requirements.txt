@@ -1,8 +1,12 @@
 # Everything needed
 
 # Jupyter
+jupyter == 1.0.0
 jupyterlab == 0.31.12
-numpy == 1.14.0
-scipy == 1.0.0
-matplotlib == 2.2.0
 
+# Calculus
+numpy == 1.14.0
+pydy == 0.4.0
+scipy == 1.0.0
+sympy == 1.1.1
+matplotlib == 2.2.0

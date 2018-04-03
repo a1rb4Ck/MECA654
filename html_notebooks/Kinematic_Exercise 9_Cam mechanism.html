@@ -11771,44 +11771,12 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># MECA654, March 2018, Pierre Nagorny</span>
-<span class="c1"># Polytech Annecy-Chambéry, SYMME lab, Savoie Mont Blanc University</span>
-
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span><span class="p">,</span> <span class="n">IFrame</span><span class="p">,</span> <span class="n">Math</span>
-<span class="kn">from</span> <span class="nn">IPython.core.interactiveshell</span> <span class="k">import</span> <span class="n">InteractiveShell</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">YouTubeVideo</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>  <span class="c1"># Loading Pyplot</span>
-<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="k">import</span> <span class="n">interp1d</span>
-<span class="c1"># Setting Matplotlib render backend</span>
-<span class="o">%</span><span class="k">matplotlib</span> nbagg
-<span class="c1">#%pylab inline</span>
-<span class="kn">from</span> <span class="nn">sympy</span> <span class="k">import</span> <span class="o">*</span>  <span class="c1"># Loading Sympy for symbolic calculus</span>
-<span class="kn">from</span> <span class="nn">sympy.physics.vector</span> <span class="k">import</span> <span class="o">*</span>  <span class="c1"># Everything needed for vector calculs, Reference frame, dynamic</span>
-<span class="kn">from</span> <span class="nn">sympy.physics.vector</span> <span class="k">import</span> <span class="n">init_vprinting</span>  <span class="c1"># To print time varying vectors</span>
-
-<span class="n">init_printing</span><span class="p">()</span>
-<span class="n">init_vprinting</span><span class="p">(</span><span class="n">pretty_print</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-<span class="c1"># Display full output in Jupyter Notebook</span>
-<span class="n">InteractiveShell</span><span class="o">.</span><span class="n">ast_node_interactivity</span> <span class="o">=</span> <span class="s2">&quot;all&quot;</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>MECA654, March 2018, Polytech Annecy-Chambéry</strong><br>
+<a href="https://github.com/a1rb4Ck/MECA654">This interactive notebook is on Github</a></p>
 <h2 id="Exercise-9---Cam-mechanism">Exercise 9 - Cam mechanism<a class="anchor-link" href="#Exercise-9---Cam-mechanism">&#182;</a></h2><h3 id="Slipping-velocity">Slipping velocity<a class="anchor-link" href="#Slipping-velocity">&#182;</a></h3><p>$(1)$ is an excentric wheel<br>
 $(2)$ is a plate on top of $(1)$, $(1)$ is sliding on $(2)$<br>
 $(2) / (0)$ is a sliding joint,  axis $\vec{j_0}$</p>
@@ -12809,10 +12777,34 @@ IMAA8EQK+V+IqJgAAAAASUVORK5CYII=" transform="matrix(0.125 0 0 0.125 0 -1.0029)">
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Define used symbols for SymPy, constant variables</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># MECA654, March 2018, Pierre Nagorny</span>
+<span class="c1"># Polytech Annecy-Chambéry, SYMME lab, Savoie Mont Blanc University</span>
+
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span><span class="p">,</span> <span class="n">IFrame</span><span class="p">,</span> <span class="n">Math</span>
+<span class="kn">from</span> <span class="nn">IPython.core.interactiveshell</span> <span class="k">import</span> <span class="n">InteractiveShell</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">YouTubeVideo</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>  <span class="c1"># Loading Pyplot</span>
+<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="k">import</span> <span class="n">interp1d</span>
+<span class="c1"># Setting Matplotlib render backend</span>
+<span class="o">%</span><span class="k">matplotlib</span> nbagg
+<span class="c1">#%pylab inline</span>
+<span class="kn">from</span> <span class="nn">sympy</span> <span class="k">import</span> <span class="o">*</span>  <span class="c1"># Loading Sympy for symbolic calculus</span>
+<span class="kn">from</span> <span class="nn">sympy.physics.vector</span> <span class="k">import</span> <span class="o">*</span>  <span class="c1"># Everything needed for vector calculs, Reference frame, dynamic</span>
+<span class="kn">from</span> <span class="nn">sympy.physics.vector</span> <span class="k">import</span> <span class="n">init_vprinting</span>  <span class="c1"># To print time varying vectors</span>
+
+<span class="n">init_printing</span><span class="p">()</span>
+<span class="n">init_vprinting</span><span class="p">(</span><span class="n">pretty_print</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Display full output in Jupyter Notebook</span>
+<span class="n">InteractiveShell</span><span class="o">.</span><span class="n">ast_node_interactivity</span> <span class="o">=</span> <span class="s2">&quot;all&quot;</span>
+
+
+<span class="c1"># Define used symbols for SymPy, constant variables</span>
 <span class="n">R</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;R e t&#39;</span><span class="p">)</span>  <span class="c1"># the time t is a symbol</span>
 <span class="c1"># Define dynamic symbols, variables function of time t</span>
 <span class="n">theta_1</span><span class="p">,</span> <span class="n">y_2</span><span class="p">,</span> <span class="n">OM</span> <span class="o">=</span> <span class="n">dynamicsymbols</span><span class="p">(</span><span class="s1">&#39;theta_1 y_2 OM&#39;</span><span class="p">)</span>
@@ -12847,11 +12839,45 @@ IMAA8EQK+V+IqJgAAAAASUVORK5CYII=" transform="matrix(0.125 0 0 0.125 0 -1.0029)">
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">V_01</span> <span class="o">=</span> <span class="p">(</span><span class="n">B1</span><span class="p">[</span><span class="s1">&#39;i&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">dt</span><span class="p">(</span><span class="n">B0</span><span class="p">)</span>
 <span class="n">V_01</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[2]:</div>
+
+
+
+
+<div class="output_latex output_subarea output_execute_result">
+$$\dot{\theta}_{1}\mathbf{\hat{b1}_{j}}$$
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">V_02</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_2</span> <span class="o">*</span> <span class="n">B0</span><span class="p">[</span><span class="s1">&#39;j&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">dt</span><span class="p">(</span><span class="n">B0</span><span class="p">)</span>
+<span class="n">V_02</span>
 </pre></div>
 
 </div>
@@ -12870,7 +12896,7 @@ IMAA8EQK+V+IqJgAAAAASUVORK5CYII=" transform="matrix(0.125 0 0 0.125 0 -1.0029)">
 
 
 <div class="output_latex output_subarea output_execute_result">
-$$\dot{\theta}_{1}\mathbf{\hat{b1}_{j}}$$
+$$\dot{y}_{2}\mathbf{\hat{b0}_{j}}$$
 </div>
 
 </div>
@@ -12884,8 +12910,9 @@ $$\dot{\theta}_{1}\mathbf{\hat{b1}_{j}}$$
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">V_02</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_2</span> <span class="o">*</span> <span class="n">B0</span><span class="p">[</span><span class="s1">&#39;j&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">dt</span><span class="p">(</span><span class="n">B0</span><span class="p">)</span>
-<span class="n">V_02</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">V_12</span> <span class="o">=</span> <span class="n">V_02</span> <span class="o">-</span> <span class="n">V_01</span>
+<span class="n">V_12</span>
+<span class="n">V_12</span><span class="o">.</span><span class="n">to_matrix</span><span class="p">(</span><span class="n">B0</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12904,41 +12931,6 @@ $$\dot{\theta}_{1}\mathbf{\hat{b1}_{j}}$$
 
 
 <div class="output_latex output_subarea output_execute_result">
-$$\dot{y}_{2}\mathbf{\hat{b0}_{j}}$$
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">V_12</span> <span class="o">=</span> <span class="n">V_02</span> <span class="o">-</span> <span class="n">V_01</span>
-<span class="n">V_12</span>
-<span class="n">V_12</span><span class="o">.</span><span class="n">to_matrix</span><span class="p">(</span><span class="n">B0</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[5]:</div>
-
-
-
-
-<div class="output_latex output_subarea output_execute_result">
 $$\dot{y}_{2}\mathbf{\hat{b0}_{j}} -  \dot{\theta}_{1}\mathbf{\hat{b1}_{j}}$$
 </div>
 
@@ -12946,7 +12938,7 @@ $$\dot{y}_{2}\mathbf{\hat{b0}_{j}} -  \dot{\theta}_{1}\mathbf{\hat{b1}_{j}}$$
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[5]:</div>
+<div class="prompt output_prompt">Out[4]:</div>
 
 
 
@@ -12972,7 +12964,7 @@ $$\left[\begin{matrix}\operatorname{sin}\left(\theta_{1}\right) \dot{\theta}_{1}
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># V_12 is on i0, thus V_12_j0 is zero</span>
@@ -12995,7 +12987,7 @@ $$\left[\begin{matrix}\operatorname{sin}\left(\theta_{1}\right) \dot{\theta}_{1}
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[6]:</div>
+<div class="prompt output_prompt">Out[5]:</div>
 
 
 
@@ -13008,7 +13000,7 @@ $$- \operatorname{cos}\left(\theta_{1}\right) \dot{\theta}_{1} + \dot{y}_{2} = 0
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[6]:</div>
+<div class="prompt output_prompt">Out[5]:</div>
 
 
 
@@ -13021,7 +13013,7 @@ $$y_{2} = C_{1} + \operatorname{sin}\left(\theta_{1}\right)$$
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[6]:</div>
+<div class="prompt output_prompt">Out[5]:</div>
 
 
 
@@ -13034,7 +13026,7 @@ $$\operatorname{sin}\left(\theta_{1}\right) \dot{\theta}_{1} = \theta_{1}$$
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[6]:</div>
+<div class="prompt output_prompt">Out[5]:</div>
 
 
 
@@ -13060,7 +13052,7 @@ $$\operatorname{Si}\left(\theta_{1}\right) = C_{1} + t$$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">func_y_2</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="s1">&#39;func_y_2&#39;</span><span class="p">)(</span><span class="n">theta_1</span><span class="p">)</span>
@@ -13083,7 +13075,7 @@ $$\operatorname{Si}\left(\theta_{1}\right) = C_{1} + t$$
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[7]:</div>
+<div class="prompt output_prompt">Out[6]:</div>
 
 
 
